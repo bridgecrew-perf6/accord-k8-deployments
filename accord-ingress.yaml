@@ -8,7 +8,7 @@ metadata:
     ingress.kubernetes.io/auth-secret: basic-auth
 spec:
   rules:
-    - host: accord-web.uvarc.io
+    - host: accord.uvarc.io
       http:
         paths:
           - path: /
@@ -23,7 +23,7 @@ metadata:
   namespace: accord
 spec:
   rules:
-    - host: accord-service.uvarc.io
+    - host: accord.uvarc.io
       http:
         paths:
           - path: /accord/api/
