@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: accord-service-supervisor-app-config
+  namespace: accord
+data:
+  supervisor_app.conf: |
+    [supervisord]
+    nodaemon=true
+    
+    [program:uwsgi]
+    command = /usr/local/bin/uwsgi --ini /accord_service/accord_wsgi.ini
+    stdout_logfile=/dev/stdout
+    stdout_logfile_maxbytes=0
+    stderr_logfile=/dev/stderr
+    stderr_logfile_maxbytes=0
+    autorestart=true
+    
+    #[program:gunicorn]
+    #command=/usr/local/bin/gunicorn --bind unix:///ithriv_service/app.sock -w 1 -k gevent run:app
+    #directory=/ithriv_service
+    #user=root
+    #group=root
+    #stdout_logfile=/dev/stdout
+    #stdout_logfile_maxbytes=0
+    #stderr_logfile=/dev/stderr
+    #stderr_logfile_maxbytes=0
+    #autostart=true
+    #autorestart=false
+    #redirect_stderr=true
+    
+    [program:nginx]
+    command = /usr/sbin/nginx
+    stdout_logfile=/dev/stdout
+    stdout_logfile_maxbytes=0
+    stderr_logfile=/dev/stderr
+    stderr_logfile_maxbytes=0
+    autorestart=true
+    
+    # [program:accord_service_setup]
+    # command = flask setupapp
+    # stdout_logfile=/dev/stdout
+    # stdout_logfile_maxbytes=0
+    # stderr_logfile=/dev/stderr
+    # stderr_logfile_maxbytes=0
+    # autorestart=false

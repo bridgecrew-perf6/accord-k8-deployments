@@ -1,0 +1,31 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mongodb-env-configmap
+  namespace: accord
+data:
+#  EXTRA_VAR: extra
+
+data:
+  init_db.js: |
+    db = db.getSiblingDB("accord");
+    db.createUser({
+      user: "accord_user",
+      pwd: "accord_pass", // or cleartext password
+      roles: [{ role: "readWrite", db: "accord" }],
+    });
+    db.pods.insert({
+      pod_title: "Python 3 environment",
+      pod_sub_title: "Devlopment Tools",
+      pod_desc: "Python 3.6, bash",
+    });
+    db.pods.insert({
+      pod_title: "RStudio",
+      pod_sub_title: "IDE",
+      pod_desc: "R, Shiny, TensorFlow",
+    });
+    db.pods.insert({
+      pod_title: "Jupyter/Scipy",
+      pod_sub_title: "Interactive computing",
+      pod_desc: "Python, jQuery, Tornado",
+    });

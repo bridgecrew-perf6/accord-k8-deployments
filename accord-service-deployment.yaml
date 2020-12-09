@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: accord-service
+  name: accord-service
+  namespace: accord
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accord-service
+  template:
+    metadata:
+      labels:
+        app: accord-service
+    spec:
+      containers:
+        - image: quay.io/accord/accord-service:latest
+          name: accord-service
+          env:
+          - name: BUILD_ENV
+            value: "docker"
+          - name: REDIS_ENV_HOST
+            value: "accord-service-redis-service"
+          envFrom:
+          - configMapRef:
+              name: accord-service-mongo-connections-configmap 
+          volumeMounts:
+            - name: accord-service-nginx-config
+              mountPath: /etc/nginx/sites-available
+            - name: accord-service-connections-json
+              mountPath: /etc/private/accord
+            - name: accord-service-supervisord-conf
+              mountPath: /etc/supervisor/
+      volumes:
+        - name: accord-service-nginx-config
+          configMap:
+            name: accord-service-nginx-config
+        - name: accord-service-connections-json
+          configMap:
+            name: accord-service-connections-json
+        - name: accord-service-supervisord-conf
+          configMap:
+            name: accord-service-supervisord-conf
+        - name: accord-service-mongo-connections-configmap
+          configMap:
+            name: accord-service-mongo-connections-configmap
