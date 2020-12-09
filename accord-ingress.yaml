@@ -8,13 +8,13 @@ metadata:
     ingress.kubernetes.io/auth-secret: basic-auth
 spec:
   rules:
-    - host: accord.uvarc.io
+    - host: accord-web.uvarc.io
       http:
         paths:
           - path: /
             backend:
-              serviceName: accord-web
-              servicePort: 80
+              serviceName: accord-web-service
+              servicePort: 4200
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
@@ -23,10 +23,10 @@ metadata:
   namespace: accord
 spec:
   rules:
-    - host: accord.uvarc.io
+    - host: accord-service.uvarc.io
       http:
         paths:
-          - path: /accord
+          - path: /accord/api/
             backend:
-              serviceName: accord-service
+              serviceName: accord-service-service
               servicePort: 5000
