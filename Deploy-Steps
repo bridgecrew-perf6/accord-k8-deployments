@@ -1,4 +1,4 @@
-kubectl create -f accord-Ingress.yaml
+kubectl create -f accord-ingress.yaml
 kubectl create -f mongodb-env-configmap.yaml
 kubectl create -f mongodb-secret.yaml
 kubectl create -f mongo-headless-service.yaml
