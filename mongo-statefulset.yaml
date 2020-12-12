@@ -40,6 +40,7 @@ spec:
 #          mountPath: /data/db
         - name: mongodb-env-configmap
           mountPath: /docker-entrypoint-initdb.d
+#      nodeName: node1
       volumes:
         - name: mongodb-env-configmap
           configMap:

@@ -4,8 +4,8 @@ metadata:
   name: accord-web-assets-config
   namespace: accord
 data:
-  config: |
+  config.json: |
     {
-     “prodiuction”: false,
-     “api”: “https://dev.ithriv.org/accord/api/”
-    }
+     "production": false,
+     "api": "https://accord.uvarc.io/accord/api/"
+    }  

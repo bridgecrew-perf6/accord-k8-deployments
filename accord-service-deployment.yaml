@@ -34,6 +34,7 @@ spec:
               mountPath: /etc/private/accord
             - name: accord-service-supervisord-conf
               mountPath: /etc/supervisor/
+#      nodeName: node1
       volumes:
         - name: accord-service-nginx-config
           configMap:

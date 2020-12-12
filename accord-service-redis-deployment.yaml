@@ -25,3 +25,4 @@ spec:
             value: "docker"
           - name: REDIS_ENV_HOST
             value: "accord-service-redis"
+#      nodeName: node1
