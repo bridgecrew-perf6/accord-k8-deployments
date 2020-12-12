@@ -14,6 +14,7 @@ kubectl create -f accord-service-redis-deployment.yaml
 kubectl create -f accord-service-deployment.yaml
 
 kubectl create -f accord-web-nginx-configmap.yaml
+kubectl create -f accord-web-assets-config.yaml
 kubectl create -f accord-web-service.yaml
 kubectl create -f accord-web-deployment.yaml 
 
