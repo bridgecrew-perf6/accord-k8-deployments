@@ -19,6 +19,7 @@ spec:
       containers:
         - image: quay.io/accord/accord-web:latest
           name: accord-web
+          imagePullPolicy: Always
           volumeMounts:
             - name: accord-web-nginx-config
               mountPath: /etc/nginx/conf.d

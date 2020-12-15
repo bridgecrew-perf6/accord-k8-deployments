@@ -6,7 +6,7 @@ kubectl create -f mongo-statefulset.yaml
 
 kubectl create -f accord-service-connections.json-configmap.yaml
 kubectl create -f accord-service-supervisord-conf-configmap.yaml
-kubectl create -f accord-service-mongo-connections-configmap.yaml
+kubectl create -f accord-service-configmap.yml
 kubectl create -f accord-service-nginx-configmap.yaml
 kubectl create -f accord-service-service.yaml
 kubectl create -f accord-service-redis-service.yaml

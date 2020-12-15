@@ -19,14 +19,11 @@ spec:
       containers:
         - image: quay.io/accord/accord-service:latest
           name: accord-service
+          imagePullPolicy: Always
           env:
-          - name: BUILD_ENV
-            value: "docker"
-          - name: REDIS_ENV_HOST
-            value: "accord-service-redis-service"
           envFrom:
           - configMapRef:
-              name: accord-service-mongo-connections-configmap 
+              name: accord-service-configmap 
           volumeMounts:
             - name: accord-service-nginx-config
               mountPath: /etc/nginx/sites-available
