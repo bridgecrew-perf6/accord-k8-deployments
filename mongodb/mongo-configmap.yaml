@@ -1,12 +1,10 @@
-kind: ConfigMap
 apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: mongodb-env-configmap
+  name: mongo-config
   namespace: accord
 data:
-#  EXTRA_VAR: extra
-
-data:
+  MONGO_INITDB_ROOT_USERNAME: root
   init_db.js: |
     db = db.getSiblingDB("accord");
     db.createUser({

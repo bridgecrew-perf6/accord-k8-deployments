@@ -1,8 +1,11 @@
 kubectl create -f accord-ingress.yaml
-kubectl create -f mongodb-env-configmap.yaml
-kubectl create -f mongodb-secret.yaml
-kubectl create -f mongo-headless-service.yaml
-kubectl create -f mongo-statefulset.yaml
+
+kubectl create -f mongo-configmap.yaml
+kubectl create -f mongo-secret.yaml
+kubectl create -f mongo-service.yaml
+kubectl create -f mongo-pv.yaml
+kubectl create -f mongo-pvc.yaml
+kubectl create -f mongo-deployment.yaml
 
 kubectl create -f accord-service-connections.json-configmap.yaml
 kubectl create -f accord-service-supervisord-conf-configmap.yaml
@@ -17,7 +20,4 @@ kubectl create -f accord-web-nginx-configmap.yaml
 kubectl create -f accord-web-assets-config.yaml
 kubectl create -f accord-web-service.yaml
 kubectl create -f accord-web-deployment.yaml 
-
-
-
 
