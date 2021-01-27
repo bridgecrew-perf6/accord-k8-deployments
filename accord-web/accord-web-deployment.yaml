@@ -21,12 +21,8 @@ spec:
           name: accord-web
           imagePullPolicy: Always
           volumeMounts:
-            - name: accord-web-nginx-config
-              mountPath: /etc/nginx/conf.d
             - name: accord-web-assets-config
               mountPath: /usr/share/nginx/html/assets/config
-#              readOnly: false
-#      nodeName: node3
       volumes:
         - name: accord-web-nginx-config
           configMap:
