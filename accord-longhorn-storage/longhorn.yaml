@@ -571,8 +571,9 @@ data:
       fromBackup: ""
     #  diskSelector: "ssd,fast"
     #  nodeSelector: "storage,fast"
-      recurringJobs: '[{"name":"snap", "task":"snapshot", "cron":"0 * * * ?", "retain":1},
-                       {"name":"backup", "task":"backup", "cron":"0 * * * ?", "retain":1,
+      recurringJobs: '[{"name":"snap", "task":"snapshot", "cron":"0 * * * ?", "retain":25,
+                        "labels": {"interval":"1hr"}},
+                       {"name":"backup", "task":"backup", "cron":"0 * * * ?", "retain":25,
                         "labels": {"interval":"1hr"}}]'
 ---
 apiVersion: apps/v1
